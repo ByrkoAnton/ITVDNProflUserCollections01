@@ -89,12 +89,44 @@ namespace UserCollections03
             return msg;
         }
 
-        public Person Dell()
+        public void Dell()
         {
-            Person person = _persons[0];
-            
             Array.Resize(ref _persons,_persons.Length-1);
-            return person;
+        }
+
+        public void Dell(Person person)
+        {
+            int pos = -1;
+
+            for (int i = 0; i < _persons.Length; i++)
+            {
+                if (person.Pasport == _persons[i].Pasport)
+                {
+                    pos = i;
+                    break;
+                }
+            }
+
+            if (pos != -1)
+            {
+                Person[] newPersons = new Person[_persons.Length-1];
+
+                for (int i = 0; i < newPersons.Length; i++)
+                {
+                    if (i < pos)
+                    {
+                        newPersons[i] = _persons[i];
+                    }
+                    else
+                    {
+                        newPersons[i] = _persons[i + 1];
+                    }
+                }
+
+                _persons = newPersons;
+                return;
+            }
+            Console.WriteLine($"{person.Show()}\nnot found");
         }
 
         public ArrayList Contains(Person person) // что бы венуть bool и int решил вернуть коллекцию. 

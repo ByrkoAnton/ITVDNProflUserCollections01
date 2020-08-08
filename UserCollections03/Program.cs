@@ -14,7 +14,7 @@ namespace UserCollections03
             persons.Add(new Student("Anton3", "Byrko3", 1233, "ITVDN"));
             persons.Add(new Retiree("Ivan", "Ivanov", 546, 80));
             persons.Add(new Worker("Vova", "Sidorov", 34356, "NP", 80000));
-            persons.Dell();
+            persons.Dell(new Student("Anton3", "Byrko3", 1233, "ITVDN"));
             foreach (Person i in persons)
             {
                 Console.WriteLine(i.Show());
@@ -35,6 +35,8 @@ namespace UserCollections03
 
            int lasIndex = lasPerson[1] is int ? (int) lasPerson[1] : 0;
            Console.WriteLine(lasIndex);
+
+
            persons.Clear();
         }
     }
